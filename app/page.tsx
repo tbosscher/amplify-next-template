@@ -34,7 +34,7 @@ export default function App() {
   }
 
   return (
-<Authenticator
+    <Authenticator
   hideSignUp={true}
   components={{
     Header() {
@@ -42,14 +42,17 @@ export default function App() {
     },
   }}
 >
-  {({ signOut, user }) => (
-    <main className="app-container">
-      <button onClick={signOut}>Sign out</button>
-      <h2>Your Files</h2>
-      <StorageBrowser />
-    </main>
-  )}
+  {({ signOut, user }) =>
+    user ? (
+      // Post-login page
+      <main className="post-login-container">
+        <h1>Welcome to WorkShift Docs!</h1>
+        <button onClick={signOut}>Sign out</button>
+        <h2>Your Files</h2>
+        <StorageBrowser />
+      </main>
+    ) : null
+  }
 </Authenticator>
-
   );
 }
