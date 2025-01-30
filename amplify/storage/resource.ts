@@ -1,18 +1,11 @@
 import { defineStorage } from '@aws-amplify/backend';
 
 export const storage = defineStorage({
-  name: 'workshift docs',
+  name: 'workshift-docs',
   access: (allow) => ({
-    'public/*': [
-      allow.guest.to(['read']),
-      allow.authenticated.to(['read', 'write', 'delete']),
-    ],
-    'protected/{entity_id}/*': [
-      allow.authenticated.to(['read']),
-      allow.entity('identity').to(['read', 'write', 'delete'])
-    ],
-    'private/{entity_id}/*': [
-      allow.entity('identity').to(['read', 'write', 'delete'])
+    'WorkShift Files/*': [
+      allow.authenticated.to(['read', 'write', 'delete'])
     ]
-  })
+  }),
+  versioned: true // Enable versioning for the S3 bucket
 });
