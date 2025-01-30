@@ -8,7 +8,3 @@ defineBackend({
   data,
   storage
 });
-
-
-const { cfnIdentityPool } = backend.auth.resources.cfnResources;
-cfnIdentityPool.allowUnauthenticatedIdentities = false;
