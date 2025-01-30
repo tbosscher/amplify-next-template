@@ -34,16 +34,15 @@ export default function App() {
   }
 
   return (
-    <Authenticator>
+    <Authenticator hideSignUp={true}>
       {({ signOut, user }) => (
         <main>
-            <h1>Welcome to WorkShift Docs!</h1>
-            <button onClick={signOut}>Sign out</button>
+          <h1>Welcome to WorkShift Docs!</h1>
+          <button onClick={signOut}>Sign out</button>
 
-          {/* StorageBrowser Component */}
-          <h2>Your Files</h2>
-          <StorageBrowser />
-
+          {/* StorageBrowser Component */}
+          <h2>Your Files</h2>
+          <StorageBrowser />
         </main>
       )}
     </Authenticator>

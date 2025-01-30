@@ -8,4 +8,14 @@ export const auth = defineAuth({
   loginWith: {
     email: true,
   },
+  signupAttributes: {
+    username: true,
+    email: true,
+    phone_number: true,
+  },
+  signInAliases: {
+    email: true,
+  },
+  // Hide the signup option
+  hideSignUp: true,
 });
