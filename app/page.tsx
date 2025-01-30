@@ -34,17 +34,22 @@ export default function App() {
   }
 
   return (
-    <Authenticator hideSignUp={true}>
-      {({ signOut, user }) => (
-        <main>
-          <h1>Welcome to WorkShift Docs!</h1>
-          <button onClick={signOut}>Sign out</button>
+<Authenticator
+  hideSignUp={true}
+  components={{
+    Header() {
+      return <h1 className="login-title">WorkShift Docs Login</h1>;
+    },
+  }}
+>
+  {({ signOut, user }) => (
+    <main className="app-container">
+      <button onClick={signOut}>Sign out</button>
+      <h2>Your Files</h2>
+      <StorageBrowser />
+    </main>
+  )}
+</Authenticator>
 
-          {/* StorageBrowser Component */}
-          <h2>Your Files</h2>
-          <StorageBrowser />
-        </main>
-      )}
-    </Authenticator>
   );
 }
