@@ -41,7 +41,7 @@ export default function App() {
             <button onClick={signOut}>Sign out</button>
 
           {/* StorageBrowser Component */}
-          <h2>Shared Files</h2>
+          <h2>Your Files</h2>
           <StorageBrowser />
 
         </main>
