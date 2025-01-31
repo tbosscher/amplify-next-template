@@ -19,18 +19,27 @@ const components = {
     const { tokens } = useTheme();
 
     return (
-      <View textAlign="center" padding={tokens.space.large}>
+      <View 
+        textAlign="center" 
+        padding={tokens.space.large} 
+        style={{ marginTop: "-50px" }} // Moves logo & text higher
+      >
         {/* Logo */}
         <Image
           alt="WorkShift Logo"
           src="https://images-axioshr.s3.us-east-1.amazonaws.com/WorkShift_PrimaryLogo_1000px.png"
-          width="280px"  // Adjust as needed
+          width="280px"
           style={{ maxWidth: "100%", height: "auto" }}
         />
 
         {/* Welcome Message Below Logo */}
         <Text 
-          style={{ fontSize: "1.25rem", fontWeight: "bold", color: "#005a68", marginTop: "10px" }}
+          style={{ 
+            fontSize: "1.25rem", 
+            fontWeight: "bold", 
+            color: "#005a68", 
+            marginTop: "5px" 
+          }}
         >
           Welcome to WorkShift Docs!
         </Text>
@@ -38,6 +47,7 @@ const components = {
     );
   }
 };
+
 
 export default function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
@@ -67,17 +77,17 @@ export default function App() {
             <Image
               alt="WorkShift Logo"
               src="https://images-axioshr.s3.us-east-1.amazonaws.com/WorkShift_PrimaryLogo_1000px.png"
-              width="280px"  // Slightly reduced size for better fit
-              style={{ maxWidth: "100%", height: "auto", marginBottom: "20px" }}
+              width="280px"
+              style={{ maxWidth: "100%", height: "auto" }}
             />
           </div>
 
-          {/* Updated Heading - Removed "Shared Files" */}
+          {/* Welcome Message */}
           <p style={{ fontSize: "1rem", marginBottom: "5px" }}>
             Welcome to WorkShift Docs!
           </p>
 
-          {/* Sign Out Button - Styled in #005a68 */}
+          {/* Sign Out Button - MASSIVE Space Below */}
           <button 
             onClick={signOut} 
             style={{
@@ -87,7 +97,8 @@ export default function App() {
               padding: "10px 20px",
               fontSize: "1rem",
               borderRadius: "5px",
-              cursor: "pointer"
+              cursor: "pointer",
+              marginBottom: "120px" // Increased space significantly
             }}>
             Sign out
           </button>
@@ -98,6 +109,7 @@ export default function App() {
       )}
     </Authenticator>
 );
+
 
 
 
