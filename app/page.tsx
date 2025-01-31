@@ -7,12 +7,29 @@ import "./../app/app.css";
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
-import { Authenticator } from '@aws-amplify/ui-react';
+import { Authenticator, View, Image, useTheme } from '@aws-amplify/ui-react';
 import { StorageBrowser } from '../components/StorageBrowser';
 
 Amplify.configure(outputs);
 
 const client = generateClient<Schema>();
+
+const components = {
+  Header() {
+    const { tokens } = useTheme();
+
+    return (
+      <View textAlign="center" padding={tokens.space.large}>
+        <Image
+          alt="WorkShift Logo"
+          src="https://images-axioshr.s3.us-east-1.amazonaws.com/WorkShift_PrimaryLogo_1000px.png"
+          width="300px"  // Adjust width for better fit
+          style={{ maxWidth: "100%", height: "auto" }} // Ensures responsiveness
+        />
+      </View>
+    );
+  }
+};
 
 export default function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
@@ -34,7 +51,7 @@ export default function App() {
   }
 
   return (
-    <Authenticator hideSignUp={true}>
+    <Authenticator hideSignUp={true} components={components}>
       {({ signOut, user }) => (
         <main>
           <h1>Welcome to WorkShift Docs!</h1>
